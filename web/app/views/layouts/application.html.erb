@@ -1,27 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>Myapp</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- Color theme for statusbar -->
+        <meta name="theme-color" content="#2196f3">
+        <!-- Your app title -->
+        <title>My App</title>
+        <!-- Path to Framework7 Library CSS -->
+        <link rel="stylesheet" href="/css/framework7.min.css">
+        <!-- Path to your custom app styles-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+        <!-- App root element -->
+        <div id="app">
+            <!-- Statusbar overlay -->
+            <div class="statusbar"></div>
 
-  <body>
-      <% if user_signed_in? %>
-          <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-      <% end %>
-      <% if notice %>
-          <p class="notice"><%= notice %></p>
-      <% elsif alert %>
-          <p class="alert"><%= alert %></p>
-      <% end %>
-      <%= yield %>
-  </body>
+            <!-- Your main view, should have "view-main" class -->
+            <div class="view view-main">
+                <!-- Initial Page, "data-name" contains page name -->
+                <div data-name="home" class="page">
+
+                    <!-- Top Navbar -->
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="title">遊びの街</div>
+                        </div>
+                    </div>
+
+                    <!-- Toolbar -->
+                    <div class="toolbar">
+                        <div class="toolbar-inner">
+                            <!-- Toolbar links -->
+                            <a href="#" class="link">Link 1</a>
+                            <a href="#" class="link">Link 2</a>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+
+                        <% if user_signed_in? %>
+                            <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+                        <% end %>
+                        <% if notice %>
+                            <p class="notice"><%= notice %></p>
+                        <% elsif alert %>
+                            <p class="alert"><%= alert %></p>
+                        <% end %>
+                        <%= yield %>
+
+                        <p>Page content goes here</p>
+                        <!-- Link to another page -->
+                        <a href="/about/">About app</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="/js/framework7.min.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="/js/my-app.js"></script>
+    </body>
 </html>

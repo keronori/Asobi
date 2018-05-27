@@ -11,13 +11,14 @@
         <title>My App</title>
         <!-- Path to Framework7 Library CSS -->
         <link rel="stylesheet" href="/css/framework7.min.css">
+        <link rel="stylesheet" href="/css//framework7-icons.css">
         <!-- Path to your custom app styles-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
-    <body>
+    <body class="color-theme-orange">
         <!-- App root element -->
         <div id="app">
             <!-- Statusbar overlay -->
@@ -25,28 +26,37 @@
 
             <!-- Your main view, should have "view-main" class -->
             <div class="view view-main">
-                <!-- Initial Page, "data-name" contains page name -->
-                <div data-name="home" class="page">
-
                     <!-- Top Navbar -->
                     <div class="navbar">
                         <div class="navbar-inner">
-                            <div class="title">遊びの街</div>
+                            <div class="title">フィード</div>
                         </div>
                     </div>
 
                     <!-- Toolbar -->
-                    <div class="toolbar">
+                    <div class="toolbar tabbar tabbar-labels">
                         <div class="toolbar-inner">
-                            <!-- Toolbar links -->
-                            <a href="#" class="link">Link 1</a>
-                            <a href="#" class="link">Link 2</a>
+                            <a href="#tab2" class="tab-link active">
+                                <i class="f7-icons size-22">home</i>
+                                <span class="tabbar-label">フィード</span>
+                            </a>
+                            <a href="#tab1" class="tab-link">
+                                <i class="f7-icons size-22">persons</i>
+                                <span class="tabbar-label">コミュニティ</span>
+                            </a>
+                            <a href="#tab1" class="tab-link">
+                                <i class="f7-icons size-22">search-strong</i>
+                                <span class="tabbar-label">検索</span>
+                            </a>
+                            <a href="#tab1" class="tab-link">
+                                <i class="f7-icons size-22">settings</i>
+                                <span class="tabbar-label">設定</span>
+                            </a>
                         </div>
                     </div>
 
                     <!-- Scrollable page content -->
                     <div class="page-content">
-
                         <% if user_signed_in? %>
                             <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
                         <% end %>
@@ -56,10 +66,6 @@
                             <p class="alert"><%= alert %></p>
                         <% end %>
                         <%= yield %>
-
-                        <p>Page content goes here</p>
-                        <!-- Link to another page -->
-                        <a href="/about/">About app</a>
                     </div>
                 </div>
             </div>

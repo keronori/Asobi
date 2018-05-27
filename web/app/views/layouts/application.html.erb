@@ -27,28 +27,34 @@
             <!-- Your main view, should have "view-main" class -->
             <div class="view view-main">
                     <!-- Top Navbar -->
-                    <div class="navbar">
-                        <div class="navbar-inner">
-                            <div class="title">フィード</div>
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                        </div>
+                        <div class="title"><%= @title %></div>
+                        <div class="right">
+                            <i class="f7-icons size-22">bars</i>
+
                         </div>
                     </div>
+                </div>
 
                     <!-- Toolbar -->
                     <div class="toolbar tabbar tabbar-labels">
                         <div class="toolbar-inner">
-                            <a href="#tab2" class="tab-link active">
+                            <a href="#tab1" class="tab-link<%= @title =~ /盛上がりマップ/ ? ' tab-link-active' : '' %>" onclick="location.href='/pages/map/'">
+                                <i class="f7-icons size-22">compass</i>
+                                <span class="tabbar-label">盛上がりマップ</span>
+                            </a>
+                            <a href="./" class="tab-link<%= @title == "フィード" ? ' tab-link-active' : '' %>" onclick="location.href='/pages/feed/'">
                                 <i class="f7-icons size-22">home</i>
                                 <span class="tabbar-label">フィード</span>
                             </a>
-                            <a href="#tab1" class="tab-link">
+                            <a href="./community/" class="tab-link<%= @title == "コミュニティ" ? ' tab-link-active' : '' %>" onclick="location.href='/pages/community/'">
                                 <i class="f7-icons size-22">persons</i>
                                 <span class="tabbar-label">コミュニティ</span>
                             </a>
-                            <a href="#tab1" class="tab-link">
-                                <i class="f7-icons size-22">search-strong</i>
-                                <span class="tabbar-label">検索</span>
-                            </a>
-                            <a href="#tab1" class="tab-link">
+                            <a href="#tab1" class="tab-link<%= @title == "設定" ? ' tab-link-active' : '' %>" onclick="location.href='/pages/settings/'">
                                 <i class="f7-icons size-22">settings</i>
                                 <span class="tabbar-label">設定</span>
                             </a>
@@ -57,9 +63,6 @@
 
                     <!-- Scrollable page content -->
                     <div class="page-content">
-                        <% if user_signed_in? %>
-                            <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-                        <% end %>
                         <% if notice %>
                             <p class="notice"><%= notice %></p>
                         <% elsif alert %>

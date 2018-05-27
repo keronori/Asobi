@@ -7,7 +7,7 @@ export default class App extends React.Component {
 
             <WebView
         style={styles.container}
-        source={{uri: 'http://172.20.10.3:3000'}}/>
+        source={{uri: 'http://192.168.1.117:3000'}}/>
 
     );
   }

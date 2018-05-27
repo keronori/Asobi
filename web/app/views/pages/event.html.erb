@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-header"><%= @event[:name] %></div>
+    <div class="card-content card-content-padding">場所: <%= @event[:space] %></div>
+    <div class="card-footer">開催日時: <%= @event[:when] %></div>
+</div>
+<div class="card">
+    <div class="card-content card-content-padding"><%= @event[:contents] %></div>
+</div>
+<div class="card">
+    <div class="card-content card-content-padding">
+        <button class="button button-fill" onclick="location.href=\'/pages/events/1\'">イベントに申し込む</button></div>
